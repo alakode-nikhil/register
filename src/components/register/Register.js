@@ -56,6 +56,7 @@ export default function Register() {
             <div className="card mb-3">
                 <div className="row g-0">
                     <div className="col-6">
+                        <h2 className='card-title text-center' style={{color:'#0d6efd', fontWeight:'bold'}}>Register</h2>
                         <div className="card-body">
                             <form>
                                 <input type='text' className='form-control mt-2' id='userName' placeholder='User Name' />
