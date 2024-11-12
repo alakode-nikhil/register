@@ -14,6 +14,7 @@ export default function Register() {
         setToggle(!toggle);
     }
 
+    //Check if password is valid
     const checkValid = (event)=>{
         const password = event.target.value;
         if(haveMinChar && password.length < 8){
@@ -21,25 +22,33 @@ export default function Register() {
         }
         if(!haveMinChar && password.length > 7){
             setHaveMinChar(true);
-        } 
+        }
+
+        //used regular expression to check number presence 
         if(haveNum && !(/\d/.test(password))){
             setHaveNum(false);
         }
         if(!haveNum && (/\d/.test(password))){
             setHaveNum(true);
         }
+
+        //regular expression for spl character presence
         if(haveSplChar && !(/[!@#$%^&*]/.test(password))){
             setHaveSplChar(false);
         }
         if(!haveSplChar && (/[!@#$%^&*]/.test(password))){
             setHaveSplChar(true);
         }
+
+        //regular expression for both case inclusion
         if(haveCase && (!(/[A-Z]/.test(password)) || !(/[a-z]/.test(password)))){
             setHaveCase(false);
         }
         if(!haveCase &&((/[A-Z]/.test(password)) && (/[a-z]/.test(password)))){
             setHaveCase(true);
         }
+
+        //valid pass if all condition satisfy
         if(haveCase && haveNum && haveSplChar && haveMinChar){
             setValidPass(true);
         }else{
